@@ -6,6 +6,7 @@ from flask_ckeditor import CKEditor, CKEditorField
 from datetime import date
 from functools import wraps
 from flask_gravatar import Gravatar
+import os
 
 
 from flask_wtf import FlaskForm
@@ -21,7 +22,7 @@ from flask_gravatar import Gravatar
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
